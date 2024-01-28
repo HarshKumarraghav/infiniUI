@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "rollup -c --watch",
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "rollup -c",
     "test": "jest --watchAll --verbose",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

@@ -3,6 +3,8 @@ import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 import packageJson from "./package.json" assert { type: "json" };
 
 export default [
@@ -27,7 +29,12 @@ export default [
         tsconfig: "./tsconfig.json",
         exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.ts"],
       }),
-      postcss({ extensions: [".css"], inject: true, extract: false }),
+      postcss({
+        extensions: [".css"],
+        inject: true,
+        extract: false,
+        plugins: [tailwindcss, autoprefixer],
+      }),
     ],
   },
   {
